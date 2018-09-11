@@ -3,16 +3,7 @@ const PubSub = require('../helpers/pub_sub.js');
 const PlanetDisplay = function() {
 
 };
-// {
-//   name: 'Mercury',
-//   orbit: 87.969,
-//   day: 58.646,
-//   surfaceArea: 0.147,
-//   volume: 0.056,
-//   gravity: 0.38,
-//   moons: 0,
-//   image: 'images/mercury.jpg'
-// },
+
 PlanetDisplay.prototype.bindEvents = function () {
   PubSub.subscribe('Planets:planet-info', () => {
     const resultOut = event.detail;
@@ -22,7 +13,21 @@ PlanetDisplay.prototype.bindEvents = function () {
 
 PlanetDisplay.prototype.displayResult = function (info) {
   const display = document.querySelector('.planet-details');
-  display.textContent = info;
+  display.innerHTML = this.render(info);
+};
+
+PlanetDisplay.prototype.render = function (object) {
+  return `<ul>
+            <li>Name: ${object.name}</li>
+            <li>Orbit: ${object.orbit}</li>
+            <li>Day: ${object.day}</li>
+            <li>Surface Area: ${object.surfaceArea}</li>
+            <li>Volume: ${object.volume}</li>
+            <li>Gravity: ${object.gravity}</li>
+            <li>Moons: ${object.moons}</li>
+            <li><img src="${object.image}" width=10% height=10%></li>
+          </ul>
+          `
 };
 
 module.exports = PlanetDisplay;
