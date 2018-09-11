@@ -1,0 +1,63 @@
+body {
+  display: grid;
+  color: white;
+  width: 100%;
+  height: 100%;
+  grid-template-rows: 1fr 10fr;
+  grid-template-columns: 1fr 3fr;
+  grid-template-areas: "header header"
+                        "nav section";
+  background-color: #181C1E;
+  font-family: sans-serif;
+  cursor:url(http://icons.iconarchive.com/icons/ypf/transformers/32/rocket-launch-run-icon.png), auto;
+
+}
+
+li {
+  font-variant: small-caps;
+  list-style: none;
+  margin-left: 3px;
+
+}
+
+ul {
+  background-color: rgba(24, 28, 30, 0.7);
+  padding: 2%;
+}
+
+.planets-menu {
+  font-size: 2em;
+}
+
+.planets-menu li:hover {
+  color: #009BC2;
+  cursor: url(http://icons.iconarchive.com/icons/ypf/transformers/48/rocket-launch-run-icon.png), auto;;
+  padding-left: 5%;
+  border-left: 3px solid #009BC2;
+  font-size: 1.3em;
+}
+
+.planet-display {
+  color: white;
+  background-size: cover;
+  font-size: 1.4em;
+  width: 100%;
+  height: 100%;
+
+}
+
+.title-bar {
+  grid-area: header;
+  text-align: center;
+  font-variant: small-caps;
+  font-weight: bold;
+  font-size: 1.8em;
+}
+
+.planets-menu {
+  grid-area: nav;
+}
+
+.planet-details {
+  grid-area: section;
+}
